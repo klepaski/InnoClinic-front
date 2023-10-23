@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="page-header">
+        <h1> Offices: </h1>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Photo</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let office of offices">
+                <td>{{office.id}}</td>
+                <td>{{office.address}}</td>
+                <td>{{office.registryPhoneNumber}}</td>
+                <td>{{enum[office.status]}}</td>
+                <td><img src={{office.photoUrl}} width='100'/></td>
+                <td>
+                    <a style="display: block;" routerLink="../UpdateOffice/{{office.id}}">Update</a>
+                    <button class="btn-danger" (click)="delete(office.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a style="display: block;" routerLink="../CreateOffice">Create</a>
+    
+    <div *ngIf="errorsPresent">
+        <p style="color:red"> {{error.error.error}}</p> 
+    </div>
+</div>

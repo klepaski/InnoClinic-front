@@ -1,0 +1,36 @@
+﻿/* :root {
+    --color-primary: #8AC9AD;
+} */
+
+h1, h2 {
+    color:navy;
+}
+
+p {
+    font-size:13px;
+}
+
+.table {
+    border: 10px solid #8AC9AD;
+    border-top: 5px solid #8AC9AD;
+}
+    .table th {
+        text-align: left;
+        background: #8AC9AD;
+    }
+    .table td {
+        background: rgba(255, 255, 255, 0.5);
+        border-bottom: 5px solid #8AC9AD;
+        border-right: 5px solid #8AC9AD;
+    }
+
+:host {
+    font-family: Verdana;
+    color: #555;
+}
+
+.container {
+    /* background: rgba(255, 255, 255, 0.7); */
+    padding: 40px;
+}
+

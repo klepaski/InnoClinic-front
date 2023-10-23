@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class UpdateOffice {\n  id;\n  photoUrl;\n  city;\n  street;\n  houseNumber;\n  officeNumber;\n  registryPhoneNumber;\n  status;\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
