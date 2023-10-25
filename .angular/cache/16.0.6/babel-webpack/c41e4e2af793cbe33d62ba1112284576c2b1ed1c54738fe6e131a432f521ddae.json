@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Port {\n  orchestrator = \"5009\";\n  gateway = \"5000\";\n  auth = \"5001\";\n  offices = \"5002\";\n  profiles = \"5003\";\n  services = \"5004\";\n  appointments = \"5005\";\n  documents = \"5006\";\n  port = \"5002\";\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

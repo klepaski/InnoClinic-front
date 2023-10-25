@@ -1,0 +1,134 @@
+
+<div class="container">
+    <div class="row head">
+        <div class="col-md-1"> City </div>
+        <div class="col-md-2"> Street </div>
+        <div class="col-md-1"> House </div>
+        <div class="col-md-1"> Office </div>
+        <div class="col-md-2"> Phone </div>
+        <div class="col-md-1"> Status </div>
+        <div class="col-md-3"> Photo </div>
+        <div class="col-md-1"> Action </div>
+    </div>
+    <div class="row" *ngFor="let office of offices">
+        <div class="col-md-1"> 
+            <input type="text" [(ngModel)]="office.city" [disabled]="editableOfficeId !== office.id">
+        </div>
+        <div class="col-md-2">
+            <input type="text" [(ngModel)]="office.street" [disabled]="editableOfficeId !== office.id">
+        </div>
+        <div class="col-md-1">
+            <input type="text" [(ngModel)]="office.houseNumber" [disabled]="editableOfficeId !== office.id">
+        </div>
+        <div class="col-md-1">
+            <input type="text" [(ngModel)]="office.officeNumber" [disabled]="editableOfficeId !== office.id">
+        </div>
+        <div class="col-md-2">
+            <input type="text" [(ngModel)]="office.registryPhoneNumber" [disabled]="editableOfficeId !== office.id">
+        </div>
+        <div class="col-md-1">
+            <select [(ngModel)]="office.status" required [disabled]="editableOfficeId !== office.id">
+                <option [value]=0>Active</option>
+                <option [value]=1>Inactive</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <img src={{office.photoUrl}} width='100'/>
+            <input type="text" [(ngModel)]="office.photoUrl" [disabled]="editableOfficeId !== office.id">
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-warning" *ngIf="editableOfficeId !== office.id" (click)="editOffice(office.id)"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-success" *ngIf="editableOfficeId === office.id" (click)="saveOffice(office)"><i class="fa fa-check"></i></button>
+            <button class="btn btn-danger" (click)="delete(office.id)"><i class="fa fa-trash"></i></button>
+        </div>
+    </div>
+    <!-- -------Create new-------- -->
+    <form ngNativeValidate>
+        <div class="row">
+            <div class="col-md-1">
+                <input type="text" [(ngModel)]="newOffice.city" />
+            </div>
+            <div class="col-md-2">
+                <input type="text" [(ngModel)]="newOffice.street" />
+            </div>
+            <div class="col-md-1">
+                <input type="text" [(ngModel)]="newOffice.houseNumber" />
+            </div>
+            <div class="col-md-1">
+                <input type="text" [(ngModel)]="newOffice.officeNumber" />
+            </div>
+            <div class="col-md-2">
+                <input type="text" [(ngModel)]="newOffice.registryPhoneNumber" />
+            </div>
+            <div class="col-md-1">
+                <select class="form-control" [(ngModel)]="newOffice.status" required>
+                    <option [value]=0>Active</option>
+                    <option [value]=1>Inactive</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <input type="text" [(ngModel)]="newOffice.photoUrl" />
+            </div>
+            <div class="col-md-1">
+                <button (click)="create()" class="btn btn-success float-right">Create</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="errorsPresent">
+    <p style="color:red"> {{error.error.error}}</p> 
+</div>
+
+<!-- @*--------Modal window---------*@
+
+<div id="upload-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@l["UploadImage"]</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="upload-form" enctype="multipart/form-data">
+                    <input type="file" name="file" id="file" accept="image/*">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="upload-button">@l["Upload"]</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@l["Close"]</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <script>
+    // $('.table').on('click', '.collectionPic', function () {
+    //     var row = $(this).closest('tr');
+    //     var collectionId = row.find('input[name="collectionId"]').val();
+    //     $('#upload-modal').modal('show');
+    //     $('#upload-button').unbind('click').click(function () {
+    //         var formData = new FormData($('#upload-form')[0]);
+    //         $.ajax({
+    //             url: '/User/UploadImage/' + collectionId,
+    //             type: 'POST',
+    //             data: formData,
+    //             processData: false,
+    //             contentType: false,
+    //             success: function (result) {
+    //                 $('#pic-' + collectionId).attr('src', result);
+    //                 $('#upload-modal').modal('hide');
+    //             },
+    //             error: function () {
+    //                 alert('Error uploading image.');
+    //             }
+    //         });
+    //     });
+    // });
+
+    $('.table').on('click', '.delete-office', function () {
+        var row = $(this).closest('tr');
+        row.remove();
+    });
+</script> -->

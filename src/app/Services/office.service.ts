@@ -4,7 +4,6 @@ import { HttpResponseBase } from '@angular/common/http'
 import { Port } from '../Models/Port';
 import { CreateOffice } from '../Models/Office/CreateOffice';
 import { UpdateOffice } from '../Models/Office/UpdateOffice';
-import { Status } from '../Models/Office/Status';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +11,12 @@ import { Status } from '../Models/Office/Status';
 
 export class OfficeService {
   port:Port = new Port();
-  private _getAllUrl = "http://localhost:"+this.port.port+"/Office/GetAll"
-  private _getByIdUrl = "http://localhost:"+this.port.port+"/Office/GetById/"
-  private _deleteUrl = "http://localhost:"+this.port.port+"/Office/Delete/"
-  private _createUrl = "http://localhost:"+this.port.port+"/Office/Create"
-  private _updateUrl = "http://localhost:"+this.port.port+"/Office/Update"
-  private _changeStatusUrl = "http://localhost:"+this.port.port+"/Office/ChangeStatus/"
+  private _getAllUrl = "http://localhost:"+this.port.offices+"/Office/GetAll"
+  private _getByIdUrl = "http://localhost:"+this.port.offices+"/Office/GetById/"
+  private _deleteUrl = "http://localhost:"+this.port.offices+"/Office/Delete/"
+  private _createUrl = "http://localhost:"+this.port.offices+"/Office/Create"
+  private _updateUrl = "http://localhost:"+this.port.offices+"/Office/Update"
+  private _changeStatusUrl = "http://localhost:"+this.port.offices+"/Office/ChangeStatus/"
 
   constructor(private http: HttpClient) { }
 
@@ -34,9 +33,7 @@ export class OfficeService {
   }
 
   create(newOffice:CreateOffice){
-    // let headers1 = new HttpHeaders();
-    // headers1.append('Content-Type', 'application/json');
-    return this.http.post<any>(this._createUrl, newOffice)//, {headers : headers1})
+    return this.http.post<any>(this._createUrl, newOffice)
   }
 
   update(newOffice:UpdateOffice){
