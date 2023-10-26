@@ -11,12 +11,12 @@ import { UpdateOffice } from '../Models/Office/UpdateOffice';
 
 export class OfficeService {
   port:Port = new Port();
-  private _getAllUrl = "http://localhost:"+this.port.offices+"/Office/GetAll"
-  private _getByIdUrl = "http://localhost:"+this.port.offices+"/Office/GetById/"
-  private _deleteUrl = "http://localhost:"+this.port.offices+"/Office/Delete/"
-  private _createUrl = "http://localhost:"+this.port.offices+"/Office/Create"
-  private _updateUrl = "http://localhost:"+this.port.offices+"/Office/Update"
-  private _changeStatusUrl = "http://localhost:"+this.port.offices+"/Office/ChangeStatus/"
+  private _getAllUrl = this.port.gateway+"/Office/GetAll"
+  private _getByIdUrl = this.port.gateway+"/Office/GetById/"
+  private _deleteUrl = this.port.gateway+"/Office/Delete/"
+  private _createUrl = this.port.gateway+"/Office/Create"
+  private _updateUrl = this.port.gateway+"/Office/Update"
+  private _changeStatusUrl = this.port.gateway+"/Office/ChangeStatus/"
 
   constructor(private http: HttpClient) { }
 

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class UpdateReceptionist {\n  id;\n  photoUrl;\n  firstName;\n  lastName;\n  middleName;\n  officeId;\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

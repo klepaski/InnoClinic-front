@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class CreateReceptionist {\n  photoUrl;\n  firstName;\n  lastName;\n  middleName;\n  email;\n  officeId;\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

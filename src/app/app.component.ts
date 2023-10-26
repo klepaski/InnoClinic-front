@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
     templateUrl: './app.component.html'
 })
 export class AppComponent {
+    isAuthenticated: boolean = false;
     title = "InnoClinic";
+
+    constructor() {
+        const token = localStorage.getItem('token');
+        if (token) {
+          this.isAuthenticated = true;
+        }
+    }
+
+    logout() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('refreshToken');
+    }
 }

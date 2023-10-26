@@ -10,7 +10,7 @@
                     <a class="nav-link" routerLink="../Offices">Offices</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sth1</a>
+                    <a class="nav-link" routerLink="../Receptionists">Receptionists</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Sth2</a>
@@ -20,7 +20,9 @@
     </div>
   
       <div class="d-flex align-items-center">
-        <a class="text-reset me-3" routerLink="../Register">Sign up</a>
+        <a *ngIf="!isAuthenticated" class="text-reset me-6" routerLink="../Login">Sign in</a>
+        <a *ngIf="!isAuthenticated"  class="text-reset me-6" routerLink="../Register">Sign up</a>
+        <a *ngIf="isAuthenticated" class="text-reset me-6" routerLink="../Login" (click)="logout()">Sign out</a>
       </div>
   </nav>
 

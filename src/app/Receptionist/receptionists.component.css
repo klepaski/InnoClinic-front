@@ -1,0 +1,29 @@
+h1, h2 {
+    color:navy;
+}
+
+p {
+    font-size:13px;
+}
+
+input, select {
+    width: 100%;
+}
+input:disabled, select:disabled {
+    border: none;
+    padding: 0;
+    background: none;
+    color: black;
+}
+
+.row div
+{
+    padding-top: 5px;
+    border: 1px solid brown;
+    background-color: lightgoldenrodyellow;
+}
+
+.head {
+    background-color: orange;
+    font-weight: bold;
+}
