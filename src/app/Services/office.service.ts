@@ -17,6 +17,7 @@ export class OfficeService {
   private _createUrl = this.port.gateway+"/Office/Create"
   private _updateUrl = this.port.gateway+"/Office/Update"
   private _changeStatusUrl = this.port.gateway+"/Office/ChangeStatus/"
+  private _uploadUrl = this.port.gateway+"/Office/Upload"
 
   constructor(private http: HttpClient) { }
 
@@ -43,5 +44,11 @@ export class OfficeService {
   changeStatus(id:number, status:string){
     const params = id + "/" + status;
     return this.http.put<HttpResponseBase>(this._changeStatusUrl + params, null)
+  }
+
+  upload(file:File) {
+    const formData = new FormData();
+    formData.append('image', file);
+    return this.http.post<any>(this._uploadUrl, formData);
   }
 }

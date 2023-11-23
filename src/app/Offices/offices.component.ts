@@ -19,6 +19,7 @@ export class OfficesComponent implements OnInit {
     newOffice:CreateOffice = new CreateOffice();
     updateOffice:UpdateOffice = new UpdateOffice();
     editableOfficeId: number;
+    selectedImage: File;
 
     constructor(private _officeService: OfficeService)
   { }
@@ -72,6 +73,32 @@ export class OfficesComponent implements OnInit {
   delete(id:number) {
     this._officeService.delete(id).subscribe(
       res => { this.ngOnInit() },
+      err => {
+        console.log(err);
+          this.errorsPresent = true;
+          this.error = err;
+      }
+    )
+  }
+
+  handleImageUpload(files: FileList) {
+    console.log("handleImageUpload");
+    console.log(this.selectedImage);
+    // const file = files.item(0);
+    // if (!file) return;
+    // this.selectedImage = file;
+    // this._officeService.upload(file);
+    this._officeService.upload(this.selectedImage);
+  }
+
+  fileChangeEvent(e: File[]){
+    var file = e[0];
+    console.log(file);
+    console.log(file.type);
+    this._officeService.upload(file).subscribe(
+      res => {
+        this.newOffice.photoUrl = res.imageUrl;
+      },
       err => {
         console.log(err);
           this.errorsPresent = true;

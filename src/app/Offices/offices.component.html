@@ -34,7 +34,6 @@
         </div>
         <div class="col-md-3">
             <img src={{office.photoUrl}} width='100'/>
-            <input type="text" [(ngModel)]="office.photoUrl" [disabled]="editableOfficeId !== office.id">
         </div>
         <div class="col-md-1">
             <button class="btn btn-warning" *ngIf="editableOfficeId !== office.id" (click)="editOffice(office.id)"><i class="fa fa-pencil"></i></button>
@@ -67,7 +66,11 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <input type="text" [(ngModel)]="newOffice.photoUrl" />
+                <input type="file" (change)="fileChangeEvent($event.target.files)">
+
+                <!-- <input type="file" ngImageUpload (imageUploaded)="handleImageUpload($event)" [(ngModel)]="selectedImage"> -->
+                <!-- <button (click)="uploadImage()">Ok</button> -->
+                <!-- <input type="text" [(ngModel)]="newOffice.photoUrl" /> -->
             </div>
             <div class="col-md-1">
                 <button (click)="create()" class="btn btn-success"><i class="fa fa-plus"></i></button>

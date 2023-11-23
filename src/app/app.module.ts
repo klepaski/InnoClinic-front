@@ -15,6 +15,9 @@ import { OfficeService } from './Services/office.service';
 import { AuthService } from './Services/auth.service';
 import { ProfileService } from './Services/profile.service';
 
+import { NgImageUploadDirective } from './ng-image-upload.directive';
+
+
 const appRoutes: Routes = [
     { path: 'Register', component: RegisterComponent },
     { path: 'Login', component: LoginComponent },
@@ -36,7 +39,8 @@ const appRoutes: Routes = [
         RegisterComponent,
         LoginComponent,
         OfficesComponent,
-        ReceptionistsComponent
+        ReceptionistsComponent,
+        NgImageUploadDirective
     ],
     providers: [
         OfficeService,
